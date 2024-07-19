@@ -1,4 +1,6 @@
 package nl.sudsandbuds.brewery_service.services.impl;
 
-public class BreweryServiceImpl {
+import nl.sudsandbuds.brewery_service.services.BreweryService;
+
+public class BreweryServiceImpl implements BreweryService {
 }
