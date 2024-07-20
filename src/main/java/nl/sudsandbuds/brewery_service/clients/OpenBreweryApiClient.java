@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Optional;
 
 @FeignClient(name = "open-brewery-client", url = "${open-brewery-api.uri}")
 public interface OpenBreweryApiClient {
 
     @GetMapping(path = "/breweries", produces = "application/json")
     ResponseEntity<List<BreweryDTO>> getBreweriesWithParameters(
-            @RequestParam("by_name") Optional<String> name,
-            @RequestParam("by_city") Optional<String> city,
-            @RequestParam("by_state") Optional<String> state,
-            @RequestParam("by_type") Optional<String> type,
-            @RequestParam("page") Optional<Integer> page,
-            @RequestParam("per_page") Optional<Integer> perPage
+            @RequestParam("by_name") String name,
+            @RequestParam("by_city") String city,
+            @RequestParam("by_state") String state,
+            @RequestParam("by_type") String type,
+            @RequestParam("by_ids") String ids,
+            @RequestParam("page") Integer page,
+            @RequestParam("per_page") Integer perPage
     );
 
     @GetMapping(path = "/breweries/{id}", produces = "application/json")
@@ -37,10 +37,10 @@ public interface OpenBreweryApiClient {
 
     @GetMapping(path = "/breweries/meta", produces = "application/json")
     ResponseEntity<BreweryMetaData> getBreweriesMeta(
-            @RequestParam("by_name") Optional<String> name,
-            @RequestParam("by_city") Optional<String> city,
-            @RequestParam("by_state") Optional<String> state,
-            @RequestParam("by_type") Optional<String> type,
-            @RequestParam("per_page") Optional<Integer> perPage
+            @RequestParam("by_name") String name,
+            @RequestParam("by_city") String city,
+            @RequestParam("by_state") String state,
+            @RequestParam("by_type") String type,
+            @RequestParam("per_page") Integer perPage
     );
 }
