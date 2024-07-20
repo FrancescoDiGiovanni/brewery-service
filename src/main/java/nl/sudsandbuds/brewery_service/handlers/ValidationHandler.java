@@ -19,6 +19,12 @@ import java.util.Map;
 @Slf4j
 @RestControllerAdvice
 public class ValidationHandler {
+
+    /**
+     * Exception handler, it gets triggered everything a methods throws a HandlerMethodValidationException
+     * @param ex : HandlerMethodValidationException - Exception containing info about validation errors
+     * @return errors : Map<String, String> - Map contaning a list of validation errors
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HandlerMethodValidationException.class)
     public ResponseEntity<Response<Map<String, String>>> handleValidationExceptions(
