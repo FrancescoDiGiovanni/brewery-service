@@ -8,18 +8,18 @@ import lombok.Setter;
 public class BreweryDTO {
     private String id;
     private String name;
-    private String breweryType;
-    private String address1;
-    private String address2;
-    private String address3;
+    private String brewery_type;
+    private String address_1;
+    private String address_2;
+    private String address_3;
     private String city;
-    private String stateProvince;
-    private String postalCode;
+    private String state_province;
+    private String postal_code;
     private String country;
     private String longitude;
     private String latitude;
     private String phone;
-    private String websiteUrl;
+    private String website_url;
     private String state;
     private String street;
 }
