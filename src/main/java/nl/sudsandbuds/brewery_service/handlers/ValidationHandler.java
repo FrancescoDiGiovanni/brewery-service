@@ -30,11 +30,12 @@ public class ValidationHandler {
     public ResponseEntity<Response<Map<String, String>>> handleValidationExceptions(
             HandlerMethodValidationException ex) {
         Map<String, String> errors = new HashMap<>();
+        String errorMessage = "";
         List<ParameterValidationResult> validationErrors = ex.getAllValidationResults();
         for (ParameterValidationResult validationError : validationErrors) {
             for (MessageSourceResolvable messageSourceResolvable : validationError.getResolvableErrors() )
-                errors.put(validationError.getMethodParameter().getParameterName(), messageSourceResolvable.getDefaultMessage());
+                errorMessage += messageSourceResolvable.getDefaultMessage()+". ";
         }
-        return ResponseUtility.buildErrorResponseEntity("400", HttpStatus.BAD_REQUEST, "Error during validation", errors, log);
+        return ResponseUtility.buildErrorResponseEntity("400", HttpStatus.BAD_REQUEST, errorMessage, null, log);
     }
 }
