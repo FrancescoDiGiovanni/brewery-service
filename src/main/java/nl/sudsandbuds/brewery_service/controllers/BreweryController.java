@@ -39,6 +39,7 @@ public class BreweryController {
      * @Param perPage: Integer - Limit of results per page on Brewery List for pagination
      * @Return List<BreweryDTO> - Return a list of brewery
      */
+    @CrossOrigin
     @GetMapping(path = "/", produces = "application/json")
     public ResponseEntity<Response<List<BreweryDTO>>> getBreweries(
             @Size(max = 40, message = "Name filter must be long from 0 to 40 characters") @RequestParam(value = "name", required = false)
@@ -77,6 +78,7 @@ public class BreweryController {
      * @Param id: String - id of the brewery
      * @Return BreweryDTO - return a specific brewery
      */
+    @CrossOrigin
     @GetMapping(path = "/{id}", produces = "application/json")
     public ResponseEntity<Response<BreweryDTO>> getBrewery(
             @NotEmpty(message = "Id cannot be empty")
@@ -102,6 +104,7 @@ public class BreweryController {
      * @Param query: String - a search query
      * @Return BroweryAutocompleteDTO a list of brewery name for autocomplete inputs
      */
+    @CrossOrigin
     @GetMapping(path="/autocomplete", produces = "application/json")
     public ResponseEntity<Response<List<BreweryAutocompleteDTO>>> autocompleteBreweries(
             @RequestParam("query")
@@ -125,6 +128,7 @@ public class BreweryController {
      * @Param perPage: Integer - Limit of results per page on Brewery List for pagination
      * @Return BreweryMetaData - A object of metadata for pagination
      */
+    @CrossOrigin
     @GetMapping(path = "/meta", produces = "application/json")
     public ResponseEntity<Response<BreweryMetaData>> getBreweriesMeta(
             @Size(max = 40, message = "Name filter must be long from 0 to 40 characters") @RequestParam(value = "name", required = false)
