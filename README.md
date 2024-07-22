@@ -27,6 +27,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li>
+        <a href="#thanks-to">Thanks To</a>
+    </li>
   </ol>
 </details>
 
@@ -83,9 +86,15 @@ This section should list any major frameworks/libraries used to bootstrap your p
 6. Select Java 17
 7. Set ```nl.sudsandbuds.brewery_service.BreweryServiceApplication``` as Main Class
 8. Run the application
+
+<!-- THANKS TO -->
+## Thanks To
+<ul>
+    <li>My forced angry UI/UX designer girlfriend for graphics and mockups</li>
+    <li>ChatGPT for texts</li>
+    <li>Abdelhay1212 from github for this readme template<br/> <a href="https://github.com/othneildrew/Best-README-Template/tree/master">https://github.com/othneildrew/Best-README-Template/tree/master</a></li>
+</ul>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
