@@ -53,8 +53,6 @@ Personalized Dashboard: Save your favorite breweries, track your beer tasting jo
 Join Suds&Buds today and embark on a flavorful journey through the diverse and exciting world of beer. Cheers to discovering your next great brew!
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [![Springboot][Springboot.io]][Springboot-url]
 * ![Apache Maven Badge](https://img.shields.io/badge/Apache%20Maven-C71A36?logo=apachemaven&logoColor=fff&style=for-the-badge)
 
