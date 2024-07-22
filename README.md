@@ -91,7 +91,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 ## Thanks To
 <ul>
     <li>My forced angry UI/UX designer girlfriend for graphics and mockups</li>
-    <li>ChatGPT for texts</li>
+    <li>ChatGPT for texts :)</li>
     <li>Abdelhay1212 from github for this readme template<br/> <a href="https://github.com/othneildrew/Best-README-Template/tree/master">https://github.com/othneildrew/Best-README-Template/tree/master</a></li>
 </ul>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
