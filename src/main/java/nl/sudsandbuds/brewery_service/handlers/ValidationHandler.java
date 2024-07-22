@@ -21,7 +21,7 @@ import java.util.Map;
 public class ValidationHandler {
 
     /**
-     * Exception handler, it gets triggered everything a methods throws a HandlerMethodValidationException
+     * Exception handler, it gets triggered everytime a methods throws a HandlerMethodValidationException
      * @param ex : HandlerMethodValidationException - Exception containing info about validation errors
      * @return errors : Map<String, String> - Map contaning a list of validation errors
      */
