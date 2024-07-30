@@ -16,6 +16,7 @@ import nl.sudsandbuds.utilities.Response;
 import nl.sudsandbuds.utilities.ResponseUtility;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,9 +67,8 @@ public class BreweryController {
             return ResponseUtility.buildSuccessResponseEntity(okMessage, breweryDTOList, log);
         } catch ( FeignException e ) {
             return ResponseUtility.buildResponseEntityFromFeignClientException(e, "BREWERY-SERVICE@");
-        } catch ( Exception e) {
-            e.printStackTrace();
-            return null;
+        } catch ( Exception e ) {
+            throw new ServiceHttpStatusException("BREW-001", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR );
         }
     }
 
@@ -96,6 +96,8 @@ public class BreweryController {
             return ResponseUtility.buildSuccessResponseEntity(okMessage, breweryDTO, log);
         } catch ( FeignException e ) {
             return ResponseUtility.buildResponseEntityFromFeignClientException(e, "BREWERY-SERVICE@");
+        } catch ( Exception e) {
+            throw new ServiceHttpStatusException("BREW-001", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR );
         }
     }
 
@@ -110,13 +112,19 @@ public class BreweryController {
             @RequestParam("query")
             String query
     ) throws ServiceHttpStatusException {
-        String encodedQuery = EncodeUtilities.encodeURI(query);
-        ResponseEntity<List<BreweryAutocompleteDTO>> responseEntityFromOpenBreweryApiClient = openBreweryApiClient.autocompleteBreweries(encodedQuery);
+        try {
+            String encodedQuery = EncodeUtilities.encodeURI(query);
+            ResponseEntity<List<BreweryAutocompleteDTO>> responseEntityFromOpenBreweryApiClient = openBreweryApiClient.autocompleteBreweries(encodedQuery);
 
-        List<BreweryAutocompleteDTO> breweryAutocompleteDTOList = responseEntityFromOpenBreweryApiClient.getBody();
+            List<BreweryAutocompleteDTO> breweryAutocompleteDTOList = responseEntityFromOpenBreweryApiClient.getBody();
 
-        String okMessage = "Autocomplete names list successfully loaded";
-        return ResponseUtility.buildSuccessResponseEntity(okMessage, breweryAutocompleteDTOList, log);
+            String okMessage = "Autocomplete names list successfully loaded";
+            return ResponseUtility.buildSuccessResponseEntity(okMessage, breweryAutocompleteDTOList, log);
+        } catch ( FeignException e ) {
+            return ResponseUtility.buildResponseEntityFromFeignClientException(e, "BREWERY-SERVICE@");
+        } catch ( Exception e ) {
+            throw new ServiceHttpStatusException("BREW-001", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR );
+        }
     }
 
     /**
@@ -151,6 +159,8 @@ public class BreweryController {
             return ResponseUtility.buildSuccessResponseEntity(okMessage, breweryMetaData, log);
         } catch ( FeignException e ) {
             return ResponseUtility.buildResponseEntityFromFeignClientException(e, "BREWERY-SERVICE@");
+        } catch ( Exception e) {
+            throw new ServiceHttpStatusException("BREW-001", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR );
         }
     }
 
